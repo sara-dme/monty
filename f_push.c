@@ -40,18 +40,14 @@ void _push(stack_t **stack, unsigned int num_line)
 		return;
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
-		return;
+	{
+		fprintf(stderr, "Error: malloc failled\n");
+		exit(EXIT_FAILURE);
+	}
 	new->n = n;
-	if (*stack == NULL)
-	{
-		new->prev = new;
-		new->next = new;
-	}
-	else
-	{
-		(*stack)->prev->next = new;
-		new->prev = (*stack)->prev;
+	new->prev = NULL;
+	new->next = *stack;
+	if (*stack != NULL)
 		(*stack)->prev = new;
-		new->next = *stack;
-	}
+	*stack = new;
 }
