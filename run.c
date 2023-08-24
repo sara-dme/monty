@@ -14,6 +14,7 @@ void run(char *op, stack_t **stk, unsigned int num_line)
 				{"pint", _pint},
 				{"pop", _pop},
 				{"swap", _swap},
+				{"nop", _nop},
 				{NULL, NULL}
 				};
 	unsigned int i = 0;

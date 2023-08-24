@@ -51,6 +51,7 @@ void _pall(stack_t **stk, unsigned int num_line);
 void _pint(stack_t **stack, unsigned int num_line);
 void _pop(stack_t **stack, unsigned int num_line);
 void _swap(stack_t **stack, unsigned int num_line);
+void _nop(stack_t **stack, unsigned int num_line);
 void free_tok(void);
 
 #endif
