@@ -11,6 +11,9 @@ void run(char *op, stack_t **stk, unsigned int num_line)
 	instruction_t instr_op[] = {
 				{"push", _push},
 				{"pall", _pall},
+				{"pint", _pint},
+				{"pop", _pop},
+				{"swap", _swap}
 				{NULL, NULL}
 				};
 	unsigned int i = 0;

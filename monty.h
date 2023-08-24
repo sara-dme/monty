@@ -48,6 +48,9 @@ void _free(stack_t *stk);
 void run(char *opcode, stack_t **stk, unsigned int num_line);
 void _push(stack_t **stk, unsigned int num_line);
 void _pall(stack_t **stk, unsigned int num_line);
+void _pint(stack_t **stack, unsigned int num_line);
+void _pop(stack_t **stack, unsigned int num_line);
+void _swap(stack_t **stack, unsigned int num_line);
 void free_tok(void);
 
 #endif
