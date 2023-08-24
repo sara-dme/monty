@@ -40,11 +40,9 @@ int main(int argc, char **argv)
 		{
 			run(opcode, &stk, num_line);
 		}
-		num_line++;
 	}
-	if (!line)
-		free(line);
+	free(line);
 	_free(stk);
 	fclose(file);
-	return (0);
+	exit(EXIT_SUCCESS);
 }
