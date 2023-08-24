@@ -1,7 +1,5 @@
 #include "monty.h"
 
-char *optok = NULL;
-
 /**
  * main - the entry point 
  * @argc: number of arg pased to th eprogram
@@ -11,7 +9,7 @@ char *optok = NULL;
 int main(int argc, char **argv)
 {
 	FILE *file = NULL;
-	char *line = NULL;
+	char *line = NULL, *opcode = NULL;
 	size_t sz = 0;
 	stack_t *stk = NULL;
 	unsigned int num_line  = 0;
@@ -28,22 +26,21 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	
-	stk = malloc(sizeof(stack_t));
+	/*stk = malloc(sizeof(stack_t));
 	if (stk == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
-	}
+	}*/
 	while (getline(&line, &sz, file) != -1)
 	{
 		num_line++;
-		printf("line %s", line);
-		optok = strtok(line, DELIM);
-		if (optok != NULL && optok[0] != '#')
+		opcode = strtok(line, DELIM);
+		if (opcode != NULL && opcode[0] != '#')
 		{
-			printf("optok : %d", optok[0]);
-			run(&stk, num_line);
+			run(opcode, &stk, num_line);
 		}
+		num_line++;
 	}
 	if (!line)
 		free(line);

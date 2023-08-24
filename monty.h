@@ -11,8 +11,7 @@
 #include <ctype.h>
 #include <sys/types.h>
 
-#define DELIM " \n\t\a\b"
-extern char *optok;
+#define DELIM " \n\t\r"
 /*
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -45,8 +44,10 @@ typedef struct instruction_s
 
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 void _free(stack_t *stk);
-void run(stack_t **stk, unsigned int num_line);
-void f_push(stack_t **stk, unsigned int num_line);
+
+void run(char *opcode, stack_t **stk, unsigned int num_line);
+void _push(stack_t **stk, unsigned int num_line);
+void _pall(stack_t **stk, unsigned int num_line);
 void free_tok(void);
 
 #endif

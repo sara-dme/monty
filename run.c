@@ -2,30 +2,28 @@
 
 /**
  * run - execute the opcode
+ * @op: op to check
  * @stk: stack
  * @num_line: number of line
  */
-void run(stack_t **stk, unsigned int num_line)
+void run(char *op, stack_t **stk, unsigned int num_line)
 {
-	instruction_t op[] = {
-				{"push", f_push},
+	instruction_t instr_op[] = {
+				{"push", _push},
+				{"pall", _pall},
 				{NULL, NULL}
 				};
 	unsigned int i = 0;
 		
-	while (op[i].opcode != NULL)
+	for (i = 0; instr_op[i].opcode != NULL; i++)
 		{
-			if (strcmp(op[i].opcode, optok) == 0)
+			if (strcmp(instr_op[i].opcode, op) == 0)
 			{
-				op[i].f(stk, num_line);
+				instr_op[i].f(stk, num_line);
 				return; 
 			}
-			i++;
 		}
-	if (optok && op[i].opcode == NULL)
-	{
-		fprintf(stderr, "L%d: unknown instruction %s\n", num_line, optok);
+		fprintf(stderr, "L%d: unknown instruction %s\n", num_line, op);
 		_free(*stk);
 		exit(EXIT_FAILURE);
-	}
 }
