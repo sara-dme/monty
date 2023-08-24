@@ -2,7 +2,7 @@
 
 /**
  * _pall - print all
- * @stack: pointer to head 
+ * @stack: pointer to head
  * @num_line: line number
  */
 void _pall(stack_t **stack, unsigned int num_line)

@@ -17,17 +17,3 @@ void _free(stack_t *stk)
 		stk = tmp;
 	}
 }
-
-/**
- * free_tok - frees the array of string 
- */
-/*void free_tok(void)
-{
-	size_t i = 0;
-
-	if (optok == NULL)
-		return;
-	for (i = 0; optok[i]; i++)
-		free(optok[i]);
-	free(optok);
-}*/
